@@ -17,18 +17,18 @@
 /**
  * Code to be executed after the plugin's database scheme has been installed is defined here.
  *
- * @package     report_lmsace_reports
+ * @package     format_designer
  * @copyright   Lmsace dev team
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$definitions = array(
-    'designeroptions' => array(
+$definitions = [
+    'designeroptions' => [
         'mode' => cache_store::MODE_APPLICATION,
         'simplekeys' => true,
         'simpledata' => false,
         'overrideclass' => '\format_designer\cache\loader',
-    ),
-);
+    ],
+];

@@ -173,10 +173,10 @@ class cm_completion implements renderable, templatable {
     /**
      * Check if user is tracked for this cm.
      *
-     * @param int|null $userid
+     * @param ?int $userid
      * @return bool
      */
-    final public function is_tracked_user(int $userid = null): bool {
+    final public function is_tracked_user(?int $userid = null): bool {
         global $USER;
 
         if (is_null($userid)) {
@@ -299,10 +299,7 @@ class cm_completion implements renderable, templatable {
         }
 
         $output = '';
-        $newstate =
-            $this->get_completion_state() == COMPLETION_COMPLETE
-                ? COMPLETION_INCOMPLETE
-                : COMPLETION_COMPLETE;
+        $newstate = $this->get_completion_state() == COMPLETION_COMPLETE ? COMPLETION_INCOMPLETE : COMPLETION_COMPLETE;
         // In manual mode the icon is a toggle form...
 
         // If this completion state is used by the
@@ -487,7 +484,7 @@ class cm_completion implements renderable, templatable {
             }
         }
         $string = array_slice($string, 0, 1);
-        return $string ? implode(', ', $string) . ' ' . get_string('timeago', 'format_designer')
-            : get_string('timeagojustnow', 'format_designer');
+        return $string ? implode(', ', $string) . ' ' . get_string('timeago', 'format_designer') :
+            get_string('timeagojustnow', 'format_designer');
     }
 }

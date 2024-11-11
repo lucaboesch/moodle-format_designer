@@ -129,8 +129,7 @@ class format_designer extends \core_courseformat\base {
     public function uses_course_index() {
         global $PAGE;
         $course = $this->get_course();
-        $index = isset($course->courseindex) ?
-            ($course->courseindex == self::HIDE_EVERYWHERE ? false :
+        $index = isset($course->courseindex) ? ($course->courseindex == self::HIDE_EVERYWHERE ? false :
             ($course->courseindex == 1 && $PAGE->cm == null ? false : true) ) : true;
         return $index;
     }
@@ -833,7 +832,9 @@ class format_designer extends \core_courseformat\base {
                 'help_component' => 'format_designer',
             ];
 
-           /*  if (format_designer_has_pro() != 1 ) {
+            // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+            /*
+            if (format_designer_has_pro() != 1 ) {
                 $userprofilefields = profile_get_user_fields_with_data(0);
                 if (!empty($userprofilefields)) {
                     foreach ($userprofilefields as $field) {
@@ -845,9 +846,8 @@ class format_designer extends \core_courseformat\base {
                         ];
                     }
                 }
-            } */
-
-
+            }
+            */
 
             $courseformatoptionsedit['courseheroactivityheader'] = [
                 'label' => new lang_string('heroactivity', 'format_designer'),
@@ -981,9 +981,8 @@ class format_designer extends \core_courseformat\base {
             if (isset($option['hideif'])) {
                 $hideif = $option['hideif'];
                 if (isset($hideif[1])) {
-                    $hide = (isset($hideif[2]))
-                        ? $mform->hideif($optionname, $hideif[0], $hideif[1], $hideif[2])
-                        : $mform->hideif($optionname, $hideif[0], $hideif[1]);
+                    $hide = (isset($hideif[2])) ? $mform->hideif($optionname, $hideif[0], $hideif[1], $hideif[2]) :
+                    $mform->hideif($optionname, $hideif[0], $hideif[1]);
                 }
             }
             if (isset($option['adv'])) {
@@ -1139,8 +1138,8 @@ class format_designer extends \core_courseformat\base {
                 $widthdefaultvalue = isset($design->$name) ? $width[$design->$name] : '';
                 $sectionoptions[$name] = [
                     'default' => (isset($design->$name) ||
-                    (isset($course->coursetype) && $course->coursetype != DESIGNER_TYPE_NORMAL))
-                        ? $widthdefaultvalue : $options['default'],
+                    (isset($course->coursetype) && $course->coursetype != DESIGNER_TYPE_NORMAL)) ?
+                    $widthdefaultvalue : $options['default'],
                     'type' => PARAM_INT,
                     'label' => new lang_string($name, 'format_designer'),
                     'element_type' => 'select',
@@ -1797,7 +1796,7 @@ function format_designer_get_all_layouts() {
     $layouts = [
         'default' => get_string('link', 'format_designer'),
         'list' => get_string('list', 'format_designer'),
-        'cards' => get_string('cards', 'format_designer')
+        'cards' => get_string('cards', 'format_designer'),
     ];
     $prolayouts = array_keys(core_component::get_plugin_list('layouts'));
     $prolayouts = (array) get_strings($prolayouts, 'format_designer');
@@ -2237,7 +2236,7 @@ function format_designer_extend_navigation_course($navigation, $course, $context
         );
         $secondarymenutocoursecontent .= html_writer::link(new moodle_url('/course/view.php', ['id' => $course->id]),
         get_string('strsecondarymenucourse', 'format_designer'), ['role' => 'menuitem',
-            'class' => 'designercoursehome', "tabindex" => "-1" ]);
+            'class' => 'designercoursehome', "tabindex" => "-1", ]);
         $secondarymenutocoursecontent .= html_writer::end_tag("li");
 
         if (format_designer_has_pro() && $course->prerequisitesbackmain
@@ -2591,7 +2590,11 @@ function format_designer_is_support_subpanel() {
     return false;
 }
 
-
+/**
+ * Get the format designer cache objects.
+ *
+ * @return \core_cache\application_cache|\core_cache\session_cache|\core_cache\store
+ */
 function format_designer_get_cache_object() {
     return cache::make('format_designer', 'designeroptions');
 }

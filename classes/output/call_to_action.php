@@ -61,8 +61,7 @@ class call_to_action extends cm_completion {
         }
 
         if ($this->get_completion_state() == COMPLETION_INCOMPLETE) {
-            return $this->get_completion_data()->viewed ?
-                get_string('calltoactioncontinue', 'format_designer', $modtype) :
+            return $this->get_completion_data()->viewed ? get_string('calltoactioncontinue', 'format_designer', $modtype) :
                 get_string('calltoactionstart', 'format_designer', $modtype);
         }
 

@@ -105,8 +105,8 @@ class renderer extends \core_courseformat\output\section_renderer {
         $format = course_get_format($course);
         $singlesection = $format->get_sectionnum();
 
-        $data->issectionpageclass = $singlesection || ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE)
-            ? 'section-page-layout' : '';
+        $data->issectionpageclass = $singlesection || ($course->coursedisplay == COURSE_DISPLAY_MULTIPAGE) ? 'section-page-layout' :
+            '';
 
         if (!format_designer_has_pro()) {
             $data->headermetadata = $this->course_header_metadata_details($course);
@@ -583,7 +583,8 @@ class renderer extends \core_courseformat\output\section_renderer {
 
             foreach ($modinfo->sections as $sectionno => $modnumbers) {
                 $section = course_get_format($course)->get_section($sectionno);
-                if (\format_designer\options::is_vaild_section_completed($section, $course, $modinfo, $realtiveactivities) == "true") {
+                if (\format_designer\options::is_vaild_section_completed($section, $course, $modinfo, $realtiveactivities)
+                    == "true") {
                     $sections += 1;
                 }
             }
@@ -747,7 +748,7 @@ class renderer extends \core_courseformat\output\section_renderer {
                 $uncompletioncriteriahtml .= html_writer::end_div();
             }
 
-            $cachedata =  [
+            $cachedata = [
                 'count' => $count,
                 'completed' => $completed,
                 'percent' => round($percent),
@@ -948,8 +949,8 @@ class renderer extends \core_courseformat\output\section_renderer {
         if (isset($course->initialstate) && $course->initialstate == SECTION_COLLAPSE) {
             $sectioncollapsestatus = '';
         } else {
-            $sectioncollapsestatus = (isset($course->initialstate) && $course->initialstate == FIRST_EXPAND)
-            ? (($section->section == 0) ? 'show' : '') : 'show';
+            $sectioncollapsestatus = (isset($course->initialstate) && $course->initialstate == FIRST_EXPAND) ?
+                (($section->section == 0) ? 'show' : '') : 'show';
         }
         // Disable the collapsible for kanban board.
         if ( !($course->coursedisplay == 1 && !$onsectionpage)
@@ -962,16 +963,15 @@ class renderer extends \core_courseformat\output\section_renderer {
             $sectioncollapsestatus = 'show';
         }
         // Calculate section width for single section format.
-        $sectionwidthclass = ($course->coursedisplay && !$this->page->user_is_editing() && !$onsectionpage && $sectionheader)
-            ? $this->generate_section_widthclass($section) : '';
+        $sectionwidthclass = ($course->coursedisplay && !$this->page->user_is_editing() && !$onsectionpage && $sectionheader) ?
+            $this->generate_section_widthclass($section) : '';
 
         if ($course->coursedisplay && !$onsectionpage) {
             $sectioncollapse = false;
         }
         // Set list width for kanban board sections.
-        $sectionstylerules = ($course->coursetype == DESIGNER_TYPE_KANBAN)
-            ? (isset($course->listwidth) && $section->section != 0
-            ? sprintf('width: %s;', $course->listwidth) : '') : '';
+        $sectionstylerules = ($course->coursetype == DESIGNER_TYPE_KANBAN) ? (isset($course->listwidth) && $section->section != 0 ?
+            sprintf('width: %s;', $course->listwidth) : '') : '';
 
         $showprerequisites = ($section->section == 0) || $format->get_sectionid() ? true : false;
         $templatecontext = [
@@ -1075,8 +1075,8 @@ class renderer extends \core_courseformat\output\section_renderer {
             );
         }
         if (format_designer_has_pro()) {
-            $sectionbackgroundcolor = isset($section->sectiondesignerbackgroundcolor) ?
-                $section->sectiondesignerbackgroundcolor : '';
+            $sectionbackgroundcolor = isset($section->sectiondesignerbackgroundcolor) ? $section->sectiondesignerbackgroundcolor :
+                '';
             $templatecontext += \local_designer\courseheader::create($format)
                 ->section_progress_type(round($sectionprogress), $sectionprogresscomp, $sectionbackgroundcolor);
         }
@@ -1147,7 +1147,7 @@ class renderer extends \core_courseformat\output\section_renderer {
                 $modstyle .= sprintf('animation-duration: %ss;', ($duration) ? $duration : '1');
                 $this->flowdelay = $this->flowdelay + 0.5;
             }
-           $modclasses .= isset($course->flowsize) ? $this->get_flow_size($course) : '';
+            $modclasses .= isset($course->flowsize) ? $this->get_flow_size($course) : '';
         }
 
         $ispopupactivities = isset($course->popupactivities) && $course->popupactivities;
