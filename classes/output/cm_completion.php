@@ -173,10 +173,10 @@ class cm_completion implements renderable, templatable {
     /**
      * Check if user is tracked for this cm.
      *
-     * @param int|null $userid
+     * @param ?int $userid
      * @return bool
      */
-    final public function is_tracked_user(int $userid = null): bool {
+    final public function is_tracked_user(?int $userid = null): bool {
         global $USER;
 
         if (is_null($userid)) {

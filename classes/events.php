@@ -24,8 +24,9 @@
 
 namespace format_designer;
 
-require_once($CFG->dirroot . "/course/format/designer/lib.php");
+defined('MOODLE_INTERNAL') || die();
 
+require_once($CFG->dirroot . "/course/format/designer/lib.php");
 
 /**
  * Designer format event observer.
@@ -36,7 +37,7 @@ class events {
      * After new section created, section format options are not added to the DB.
      * Observe the section creation and add global format options to section in dB.
      *
-     * @param object $event
+     * @param object $event The event
      * @return void
      */
     public static function course_section_created($event) {
@@ -54,7 +55,7 @@ class events {
             return true;
         }
 
-        // course_section_cache_updated.
+        // Course_section_cache_updated.
         self::course_section_cache_updated($courseid, $sectionid);
 
         $format = course_get_format($courseid);
@@ -86,6 +87,12 @@ class events {
         self::course_cache_updated($courseid);
     }
 
+    /**
+     * Event observer for course completion updated.
+     *
+     * @param object $event The event
+     * @return true|void
+     */
     public static function course_completion_updated($event) {
         $data = $event->get_data();
         $courseid = $data['courseid'];
@@ -95,6 +102,12 @@ class events {
         self::course_cache_updated($courseid);
     }
 
+    /**
+     * Event observer for course updated.
+     *
+     * @param object $event The event
+     * @return true|void
+     */
     public static function course_updated($event) {
         $courseid = $event->courseid;
         if (course_get_format($courseid)->get_course()->format !== 'designer') {
@@ -103,6 +116,12 @@ class events {
         self::course_cache_updated($courseid);
     }
 
+    /**
+     * Event observer for course completed.
+     *
+     * @param object $event The event
+     * @return true|void
+     */
     public static function course_completed($event) {
         $userid = $event->relateduserid;
         $courseid = $event->courseid;
@@ -112,6 +131,12 @@ class events {
         self::course_user_cache_updated($courseid, $userid);
     }
 
+    /**
+     * Event observer for course module completion updated.
+     *
+     * @param object $event The event
+     * @return true|void
+     */
     public static function course_module_completion_updated($event) {
         $userid = $event->relateduserid;
         $courseid = $event->courseid;
@@ -121,7 +146,12 @@ class events {
         self::course_user_cache_updated($courseid, $userid);
     }
 
-
+    /**
+     * Event observer for course module created.
+     *
+     * @param object $event The event
+     * @return void
+     */
     public static function course_module_created($event) {
         self::course_section_module_cache_updated($event->courseid, $event->objectid);
     }
@@ -145,11 +175,22 @@ class events {
         self::course_section_module_cache_updated($event->courseid, $event->objectid);
     }
 
+    /**
+     * Event observer for course module updated.
+     *
+     * @param object $event The event
+     * @return void
+     */
     public static function course_module_updated($event) {
         self::course_section_module_cache_updated($event->courseid, $event->objectid);
     }
 
-
+    /**
+     * Event observer for course section deleted.
+     *
+     * @param object $event The event
+     * @return void
+     */
     public static function course_section_deleted($event) {
         $data = $event->get_data();
         $sectionid = $data['objectid'];
@@ -157,6 +198,12 @@ class events {
         self::course_section_cache_updated($courseid, $sectionid);
     }
 
+    /**
+     * Event observer for course section updated.
+     *
+     * @param object $event The event
+     * @return void
+     */
     public static function course_section_updated($event) {
         $data = $event->get_data();
         $sectionid = $data['objectid'];
@@ -164,6 +211,13 @@ class events {
         self::course_section_cache_updated($courseid, $sectionid);
     }
 
+    /**
+     * Event observer for course cache updated.
+     *
+     * @param int $courseid The course id
+     * @return void
+     * @throws \core\exception\coding_exception
+     */
     public static function course_cache_updated($courseid) {
         $cache = format_designer_get_cache_object();
         $cache->delete_vaild_section_completed_cache($courseid);
@@ -175,7 +229,14 @@ class events {
         $cache->delete("g_c_s_ic{$courseid}");
     }
 
-
+    /**
+     * Event observer for course user cache updated.
+     *
+     * @param int $courseid The course id
+     * @param int $userid The user id
+     * @return void
+     * @throws \core\exception\coding_exception
+     */
     public static function course_user_cache_updated($courseid , $userid) {
         $cache = format_designer_get_cache_object();
         $cache->delete_vaild_section_completed_cache($courseid);
@@ -187,7 +248,16 @@ class events {
         $cache->delete("g_c_s_ic{$courseid}");
     }
 
-
+    /**
+     * Event observer for course section module cache updated.
+     *
+     * @param int $courseid The course id
+     * @param int $cmid The course module id
+     * @param int $sectionid The section id
+     * @return true|void
+     * @throws \core\exception\coding_exception
+     * @throws \dml_exception
+     */
     public static function course_section_module_cache_updated($courseid, $cmid, $sectionid = 0) {
         global $DB;
 
@@ -208,6 +278,14 @@ class events {
         $cache->delete("g_c_s_ic{$courseid}");
     }
 
+    /**
+     * Event observer for course section cache updated.
+     *
+     * @param int $courseid The course id
+     * @param int $sectionid The section id
+     * @return true|void
+     * @throws \core\exception\coding_exception
+     */
     public static function course_section_cache_updated($courseid, $sectionid) {
         if (course_get_format($courseid)->get_course()->format !== 'designer') {
             return true;

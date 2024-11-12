@@ -833,22 +833,6 @@ class format_designer extends \core_courseformat\base {
                 'help_component' => 'format_designer',
             ];
 
-           /*  if (format_designer_has_pro() != 1 ) {
-                $userprofilefields = profile_get_user_fields_with_data(0);
-                if (!empty($userprofilefields)) {
-                    foreach ($userprofilefields as $field) {
-                        $courseformatoptionsedit[$field->inputname] = [
-                            'label' => $field->field->name,
-                            'element_type' => 'advcheckbox',
-                            'help' => 'profilefieditem',
-                            'help_component' => 'format_designer',
-                        ];
-                    }
-                }
-            } */
-
-
-
             $courseformatoptionsedit['courseheroactivityheader'] = [
                 'label' => new lang_string('heroactivity', 'format_designer'),
                 'element_type' => 'header',
@@ -1797,7 +1781,7 @@ function format_designer_get_all_layouts() {
     $layouts = [
         'default' => get_string('link', 'format_designer'),
         'list' => get_string('list', 'format_designer'),
-        'cards' => get_string('cards', 'format_designer')
+        'cards' => get_string('cards', 'format_designer'),
     ];
     $prolayouts = array_keys(core_component::get_plugin_list('layouts'));
     $prolayouts = (array) get_strings($prolayouts, 'format_designer');
@@ -2237,7 +2221,7 @@ function format_designer_extend_navigation_course($navigation, $course, $context
         );
         $secondarymenutocoursecontent .= html_writer::link(new moodle_url('/course/view.php', ['id' => $course->id]),
         get_string('strsecondarymenucourse', 'format_designer'), ['role' => 'menuitem',
-            'class' => 'designercoursehome', "tabindex" => "-1" ]);
+            'class' => 'designercoursehome', "tabindex" => "-1", ]);
         $secondarymenutocoursecontent .= html_writer::end_tag("li");
 
         if (format_designer_has_pro() && $course->prerequisitesbackmain
@@ -2591,7 +2575,11 @@ function format_designer_is_support_subpanel() {
     return false;
 }
 
-
+/**
+ * Get the cache object.
+ *
+ * @return \core_cache\application_cache|\core_cache\session_cache|\core_cache\store
+ */
 function format_designer_get_cache_object() {
     return cache::make('format_designer', 'designeroptions');
 }
