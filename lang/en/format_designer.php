@@ -125,10 +125,10 @@ $string['sectionbackdesignheader'] = 'Design';
 $string['applyto'] = "Apply the background to";
 $string['wholesection'] = "Whole section";
 $string['sectionheader']  = "Section header";
-$string['sectionbackgroundtype_help'] = "<b> Section header selected </b>, The background and the text color shall be applied only to the header content.
-<b> Whole section selected </b>, The background shall be applied to the whole section ";
-$string['sectionbackgroundtype'] = "<b> Section header selected </b>, The background and the text color shall be applied only to the header content.
-<b> Whole section selected </b>, The background shall be applied to the whole section ";
+$string['sectionbackgroundtype_help'] = "<b>Section header selected</b>, The background and the text color shall be applied only to the header content.
+<b>Whole section selected</b>, The background shall be applied to the whole section ";
+$string['sectionbackgroundtype'] = "<b>Section header selected</b>, The background and the text color shall be applied only to the header content.
+<b>Whole section selected</b>, The background shall be applied to the whole section ";
 $string['backgroundimage'] = "Background image";
 $string['completionbackgroundimage'] = 'Background image (completed)';
 $string['sectiondesignertextcolor_help'] = "Text color shall be only applied to the section title and section summary";
@@ -194,11 +194,11 @@ $string['backgroundrepeat_help'] = 'Background image will displayed repeated if 
 $string['enrolmentstartdate'] = 'Enrolment start date';
 $string['enrolmentstartdate_help'] = 'User current course enrolment start date will be displayed in top of the course.';
 $string['enrolmentenddate'] = 'Enrolment end date';
-$string['enrolmentenddate_help'] = 'User course enrolment end date will be displayed in top of the coures.';
+$string['enrolmentenddate_help'] = 'User course enrolment end date will be displayed in top of the course.';
 $string['coursecompletiondate'] = 'Course completion date';
 $string['coursecompletiondate_help'] = 'Student date of course completion displayed in time section.';
 $string['courseduedate'] = 'Course due date';
-$string['courseduedate_help'] = 'Course due date will shown in course timesection,
+$string['courseduedate_help'] = 'Course due date will shown in course time section,
 it only works when Learning tools and time management tool will be installed and enabled';
 $string['activityprogress'] = 'Extended progress bar';
 $string['activityprogress_help'] = '
@@ -224,16 +224,16 @@ $string['tabletwidth'] = 'Section width in tablet size';
 $string['tabletwidth_help'] = 'Section will be displayed in the selected width in tablet size,
 Only works for the one section per page.';
 $string['coursetype'] = 'Course type';
-$string['coursetype_help'] = 'Kanban board sets as course type, course sections will displayed horizontally.
+$string['coursetype_help'] = 'If Kanban board is set as course type, course sections will displayed horizontally.
 Collapsible sections are not working in kanban mode.';
 $string['kanbanboard'] = 'Kanban Board';
 $string['usecompletionbg'] = 'Use different background for completion';
-$string['activityelementsdisplay'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2" > Activity Elements Visibility Styles </h5>';
-$string['backgroundsection'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"  > Module Background Styles </h5>';
-$string['backgroundmasksection'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2" > Module Background MASK Styles </h5>';
-$string['generalsectionconfig'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2" > Module General Styles </h5>';
+$string['activityelementsdisplay'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"> Activity Elements Visibility Styles</h5>';
+$string['backgroundsection'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"> Module Background Styles</h5>';
+$string['backgroundmasksection'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"> Module Background MASK Styles</h5>';
+$string['generalsectionconfig'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"> Module General Styles</h5>';
 
-$string['sectionbackgroundheader'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2" > Section background styles </h5>';
+$string['sectionbackgroundheader'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2">Section background styles</h5>';
 $string['masksize_help'] = 'Enter any of background size property to display the mask in that size.';
 $string['maskposition_help'] = 'Use any of background position property to display the mask in that position';
 $string['maskimage_help'] = 'Selected mask image will displayed in section block.';
@@ -253,7 +253,7 @@ $string['popupactivities_help'] = 'Display the resources in popup, if enabled so
 $string['displayprogress'] = 'Display Progress';
 $string['useactivityimage'] = 'Use activity image';
 $string['subcourseuseactivityimage'] = 'Use Subcourse image as activity image';
-$string['subcoursedisplayprogress'] = 'Use Subcourse progress as activity Progress';
+$string['subcoursedisplayprogress'] = 'Use Subcourse progress as activity progress';
 $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
@@ -354,7 +354,7 @@ $string['stractivitytype'] = 'Activity type';
 $string['stractivitytitle'] = "Activity title";
 $string['strcustom'] = "Custom";
 $string['secondarymeu_title'] = "Secondary menu title";
-$string['secondarymenu'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2" > Secondary menu </h5>';
+$string['secondarymenu'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2">Secondary menu</h5>';
 $string['strcustomtitle'] = "Custom title";
 $string['customnameincourseindex'] = "Use custom name in course index";
 $string['customnameinactivityitem'] = "Use custom name on course/section pages";
@@ -385,7 +385,7 @@ $string['coursebackgroundcolor_help'] = 'Use this option to choose a background 
 $string['coursebackgroundimage'] = 'Course Background Image';
 $string['coursebackgroundimage_help'] = 'If you wish to have an image as the background for the entire course, you can upload it here. Once uploaded, this image will be displayed as the background for the entire course. This setting is optional, and you can leave it blank if you prefer not to have a background image.';
 $string['coursebackgroundtransparent'] = 'Transparent Course';
-$string['coursebackgroundtransparent_help'] = 'If you select this option, the background color of container elements within the course that currently have a background color will be set to transparent. This can create a visually appealing effect where elements appear to float on top of the background';
+$string['coursebackgroundtransparent_help'] = 'If you select this option, the background color of container elements within the course that currently have a background color will be set to transparent. This can create a visually appealing effect where elements appear to float on top of the background.';
 
 // Course header.
 $string['courseheadertype'] = 'Type';
@@ -399,21 +399,21 @@ $string['courseheadertimemanagement_help'] = 'Select the time-related elements y
 $string['courseprogresstype'] = 'Course Progress';
 $string['calcourseprogress'] = "Calculation of course progress";
 $string['calcourseprogress_help'] = "
-<b> Completion criteria: </b> progress shall include all criteria that are conditions for course completion.<br>
-<b> Relevant activities: </b> progress shall include only activities that are conditions for course completion.<br>
-<b> All activities: </b> progress shall include all activities that have completion tracking configured.<br>
-<b> Sections: </b> progress shall be based upon sections, not activities.<br>
+<b>Completion criteria:</b> progress shall include all criteria that are conditions for course completion.<br>
+<b>Relevant activities:</b> progress shall include only activities that are conditions for course completion.<br>
+<b>All activities:</b> progress shall include all activities that have completion tracking configured.<br>
+<b>Sections:</b> progress shall be based upon sections, not activities.<br>
 ";
 
 $string['completionindicator_help'] = "
-<b> Disabled: </b> do not display the indicator <br>
-<b> Below course progress: </b> show it below the course progress (depending on the configuration, this could be either the circle or the bar) <br>
-<b> With course metadata: </b> show it next to the 'course completion date' <br>
+<b>Disabled:</b> do not display the indicator <br>
+<b>Below course progress:</b> show it below the course progress (depending on the configuration, this could be either the circle or the bar) <br>
+<b>With course metadata:</b> show it next to the 'course completion date' <br>
 ";
 $string['calsectionprogress'] = "Calculation of section progress";
 $string['calsectionprogress_help'] = "
-<b> Relevant activities: </b>progress shall include only activities that are conditions for course completion.<br>
-<b> All activities: </b> progress shall include all activities that have completion tracking configured.<br>
+<b>Relevant activities:</b>progress shall include only activities that are conditions for course completion.<br>
+<b>All activities:</b> progress shall include all activities that have completion tracking configured.<br>
 ";
 $string['completionindicator'] = "Completion status indicator";
 $string['completionstatusindicator'] = "Completion status indicator";
@@ -477,8 +477,8 @@ $string['flowsize_help'] = 'Flow size is a setting that allows you to customize 
 
 $string['displayunavailableactivities'] = "Display unavailable activities";
 $string['displayunavailableactivities_help'] = "
-<b> Hide </b> — activities are not displayed if the current user has no access to the section.
-<b> Show </b> — activities are displayed, even if the current user cannot access them as long as they are visible.
+<b>Hide</b> — activities are not displayed if the current user has no access to the section.
+<b>Show</b> — activities are displayed, even if the current user cannot access them as long as they are visible.
 ";
 
 $string['activitydisplaymode'] = "Activity display mode";
@@ -543,7 +543,7 @@ $string['purpose_edited'] = 'Purpose successfully edited';
 $string['purpose_deleted'] = "Purpose successfully deleted";
 $string['delete_purpose'] = "Delete purpose";
 
-$string['modulepurposes'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2"  > Module purposes </h5>';
+$string['modulepurposes'] = '<h5 class="font-weight-normal font-italic pt-2 pb-2">Module purposes</h5>';
 $string['purpose'] = "Purpose";
 $string['purposesetting'] = "Purpose";
 $string['purposeclass'] = "Custom class for styling";
